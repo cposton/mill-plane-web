@@ -25,9 +25,11 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Publish
       run: dotnet publish MillPlane.csproj -c Release -o release --nologo
+    - name: Change base-tag in index.html for GitHub Pages
+      run: sed -i 's/<base href="\/" \/>/<base href="\/mill-plane-web\/" \/>/g' release/wwwroot/index.html
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.3.0
       with:
         token: ${{ github.token }}
-        branch: gh-pages 
+        branch: gh-pages
         folder: release/wwwroot
