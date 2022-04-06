@@ -27,6 +27,8 @@ jobs:
       run: dotnet publish MillPlane.csproj -c Release -o release --nologo
     - name: Change base-tag in index.html for GitHub Pages
       run: sed -i 's/<base href="\/" \/>/<base href="\/mill-plane-web\/" \/>/g' release/wwwroot/index.html
+    - name: Add .nojekyll file
+      run: touch release/wwwroot/.nojekyll
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.3.0
       with:
