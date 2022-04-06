@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.JSInterop;
@@ -18,6 +19,13 @@ namespace MillPlane.Pages
 
         protected override async Task OnInitializedAsync()
         {
+            var json = await JS.InvokeAsync<string>("localStorage.getItem", "bs");
+
+            if (json != null)
+            {
+                _model = JsonSerializer.Deserialize<BuildSettings>(json) ?? _model;
+            }
+
             _editContext = new EditContext(_model);
 
             await Task.CompletedTask;
@@ -27,6 +35,8 @@ namespace MillPlane.Pages
         {
             if (_editContext != null && _editContext.Validate())
             {
+                await JS.InvokeAsync<string>("localStorage.setItem", "bs", JsonSerializer.Serialize(_model));
+
                 var gcode = Build((BuildSettings)_editContext.Model);
                 using var stream = new MemoryStream(Encoding.ASCII.GetBytes(gcode));
                 using var streamRef = new DotNetStreamReference(stream: stream);

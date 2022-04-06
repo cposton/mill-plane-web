@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MillPlane
 {
+    [Serializable]
     public class BuildSettings
     {
         [Required]
@@ -26,10 +28,19 @@ namespace MillPlane
 
         public double MaterialHeight { get; set; }
 
+        [JsonIgnore]
         public double ToolRadius => ToolDiameter / 2;
+
+        [JsonIgnore]
         public double XStart => (0 - ToolRadius);
+
+        [JsonIgnore]
         public double XEnd => (Width + ToolRadius);
+
+        [JsonIgnore]
         public double Height => (MaterialHeight < ToolDiameter) ? ToolDiameter : MaterialHeight;
+
+        [JsonIgnore]
         public double Width => (MaterialWidth < ToolDiameter) ? ToolDiameter : MaterialWidth;
 
         public BuildSettings()
