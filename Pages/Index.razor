@@ -8,46 +8,46 @@
 
     <div class="row g-3">
         <div class="col-auto">
-            <label for="material-height" class="form-label">Material Height</label>
+            <label for="material-height" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Height of the material in inches">Material Height&nbsp;<i class="fa-solid fa-circle-info"></i></label>
             <InputNumber @bind-Value="_model.MaterialHeight" id="material-height" class="form-control" />
         </div>
 
         <div class="col-auto">
-            <label for="material-width" class="form-label">Material Width</label>
+            <label for="material-width" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Width of the material in inches">Material Width&nbsp;<i class="fa-solid fa-circle-info"></i></label>
             <InputNumber @bind-Value="_model.MaterialWidth" id="material-width" class="form-control" />
         </div>
 
         <div class="col-auto">
-            <label for="depth" class="form-label">Depth</label>
+            <label for="depth" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Amount of depth to plane in inches">Depth&nbsp;<i class="fa-solid fa-circle-info"></i></label>
             <InputNumber @bind-Value="_model.Depth" id="depth" class="form-control" />
         </div>
     </div>
 
     <div class="row g-3">
         <div class="col-auto">
-            <label for="tool-diameter" class="form-label">Tool Diameter</label>
+            <label for="tool-diameter" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="The diameter of the surfacing bit">Tool Diameter&nbsp;<i class="fa-solid fa-circle-info"></i></label>
             <InputNumber @bind-Value="_model.ToolDiameter" id="tool-diameter" class="form-control" />
         </div>
 
         <div class="col-auto">
-            <label for="step-down" class="form-label">Step Down</label>
+            <label for="step-down" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Step down in inches or if 0 then it will be calculated automatically">Step Down&nbsp;<i class="fa-solid fa-circle-info"></i></label>
             <InputNumber @bind-Value="_model.StepDown" id="step-down" class="form-control" />
         </div>
 
         <div class="col-auto">
-            <label for="step-over" class="form-label">Step Over</label>
+            <label for="step-over" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Step over in inches or if 0 then it will be calculated automatically">Step Over&nbsp;<i class="fa-solid fa-circle-info"></i></label>
             <InputNumber @bind-Value="_model.StepOver" id="step-over" class="form-control" />
         </div>
     </div>
 
     <div class="row g-3">
         <div class="col-auto">
-            <label for="feed" class="form-label">Feed Rate</label>
+            <label for="feed" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Feed rate in inches per minute">Feed Rate&nbsp;<i class="fa-solid fa-circle-info"></i></label>
             <InputNumber @bind-Value="_model.Feed" id="feed" class="form-control" />
         </div>
 
         <div class="col-auto">
-            <label for="rpm" class="form-label">Spindle RPM</label>
+            <label for="rpm" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="RPM">Spindle RPM&nbsp;<i class="fa-solid fa-circle-info"></i></label>
             <InputNumber @bind-Value="_model.Rpm" id="rpm" class="form-control" />
         </div>
     </div>
