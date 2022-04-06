@@ -1,0 +1,58 @@
+﻿@page "/"
+
+<PageTitle>Mill Plane Generator</PageTitle>
+
+<EditForm Model="@_model" OnValidSubmit="@HandleValidSubmit" class="row g-3">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="row g-3">
+        <div class="col-auto">
+            <label for="material-height" class="form-label">Material Height</label>
+            <InputNumber @bind-Value="_model.MaterialHeight" id="material-height" class="form-control" />
+        </div>
+
+        <div class="col-auto">
+            <label for="material-width" class="form-label">Material Width</label>
+            <InputNumber @bind-Value="_model.MaterialWidth" id="material-width" class="form-control" />
+        </div>
+
+        <div class="col-auto">
+            <label for="depth" class="form-label">Depth</label>
+            <InputNumber @bind-Value="_model.Depth" id="depth" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-auto">
+            <label for="tool-diameter" class="form-label">Tool Diameter</label>
+            <InputNumber @bind-Value="_model.ToolDiameter" id="tool-diameter" class="form-control" />
+        </div>
+
+        <div class="col-auto">
+            <label for="step-down" class="form-label">Step Down</label>
+            <InputNumber @bind-Value="_model.StepDown" id="step-down" class="form-control" />
+        </div>
+
+        <div class="col-auto">
+            <label for="step-over" class="form-label">Step Over</label>
+            <InputNumber @bind-Value="_model.StepOver" id="step-over" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-auto">
+            <label for="feed" class="form-label">Feed Rate</label>
+            <InputNumber @bind-Value="_model.Feed" id="feed" class="form-control" />
+        </div>
+
+        <div class="col-auto">
+            <label for="rpm" class="form-label">Spindle RPM</label>
+            <InputNumber @bind-Value="_model.Rpm" id="rpm" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row border-top mt-5 pt-4">
+        <button type="submit" class="btn btn-primary col-auto">Generate</button>
+    </div>
+</EditForm>
