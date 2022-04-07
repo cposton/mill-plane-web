@@ -19,11 +19,27 @@ namespace MillPlane.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            var json = await JS.InvokeAsync<string>("localStorage.getItem", "bs");
+            string? json = null;
+
+            try
+            {
+                json = await JS.InvokeAsync<string>("localStorage.getItem", "bs");
+            }
+            catch
+            {
+                Logger.LogWarning("Unable to load previous settings");
+            }
 
             if (json != null)
             {
-                _model = JsonSerializer.Deserialize<BuildSettings>(json) ?? _model;
+                try
+                {
+                    _model = JsonSerializer.Deserialize<BuildSettings>(json) ?? _model;
+                }
+                catch
+                {
+                    Logger.LogError("Unable to parse previous settings");
+                }
             }
 
             _editContext = new EditContext(_model);
